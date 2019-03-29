@@ -70,10 +70,10 @@ dt,dd{
     margin: 0;
 }
 dt{
-    font-weight:bold;
+    font-weight:normal;
 }
 dd:before{
-    content: "— ";
+    content: ". — ";
     /* content: ":"; */
 }
 dd:after{
