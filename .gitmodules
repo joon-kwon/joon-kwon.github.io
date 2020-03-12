@@ -1,3 +1,3 @@
-[submodule "psl-cpes-ml"]
-	path = psl-cpes-ml
-	url = https://github.com/joon-kwon/psl-cpes-ml
+[submodule "cpes-ml"]
+	path = cpes-ml
+	url = git@github.com:joon-kwon/cpes-ml.git
