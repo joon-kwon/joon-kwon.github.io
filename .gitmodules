@@ -1,3 +1,6 @@
 [submodule "optim-mathsv"]
 	path = optim-mathsv
 	url = https://github.com/joon-kwon/optim-mathsv.git
+[submodule "cpes-ml"]
+	path = cpes-ml
+	url = git@github.com:joon-kwon/cpes-ml
