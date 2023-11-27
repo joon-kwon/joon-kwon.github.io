@@ -4,3 +4,6 @@
 [submodule "cpes-ml"]
 	path = cpes-ml
 	url = https://github.com/joon-kwon/cpes-ml.git
+[submodule "rl-ups"]
+	path = rl-ups
+	url = https://github.com/joon-kwon/rl-ups.git
