@@ -7,3 +7,6 @@
 [submodule "rl-ups"]
 	path = rl-ups
 	url = https://github.com/joon-kwon/rl-ups.git
+[submodule "regret-ups"]
+	path = regret-ups
+	url = https://github.com/joon-kwon/regret-ups.git
