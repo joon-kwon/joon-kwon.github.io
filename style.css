@@ -62,8 +62,16 @@ ul{
     padding-left: 0;
     margin-left: 1em;
 }
+ol{
+    list-style-position:outside;
+    padding-left: 0;
+    /* margin-left: 1em; */
+}
 li{
     margin: .33em;
+}
+ol li:before{
+    content: ". — ";
 }
 dt,dd{
     display: inline;
