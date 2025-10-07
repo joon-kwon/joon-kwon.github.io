@@ -134,3 +134,23 @@ p {
 /* } */
 
 .no-border-table {border: none; margin-left: auto; margin-right: auto; border-collapse: collapse;} .no-border-table td {border: none; padding: 0 10px; /* optional: horizontal spacing */}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;  /* ensures clean single lines */
+    border: 1px solid #444;     /* outer border */
+}
+
+/* Cells (header and normal) */
+th, td {
+    border: 1px solid #444;     /* vertical + horizontal inner lines */
+    padding: 6px 12px;          /* nice spacing */
+    text-align: center;         /* optional: center text */
+}
+
+/* Optional: header styling */
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
