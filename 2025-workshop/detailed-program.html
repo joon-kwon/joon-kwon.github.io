@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-10-09 jeu. 11:52 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Workshop on regret, optimization &amp; games</title>
+<meta name="author" content="Joon Kwon" />
+<meta name="keywords" content="workshop,regret,approachability,Blackwell,optimization,games." />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Workshop on regret, optimization &amp; games
+<br />
+<span class="subtitle">Detailed program</span>
+</h1>
+<div id="outline-container-orgb7dd648" class="outline-2">
+<h2 id="orgb7dd648">Wednesday, November 5th</h2>
+<div class="outline-text-2" id="text-orgb7dd648">
+</div>
+<div id="outline-container-org543b567" class="outline-3">
+<h3 id="org543b567">9:00 — Jelena Diakonikolas (University of Wisconsin&#x2013;Madison) — TBA</h3>
+</div>
+<div id="outline-container-org1694c97" class="outline-3">
+<h3 id="org1694c97">9:45 — Nicolò Cesa-Bianchi (Università degli Studi di Milano) — TBA</h3>
+</div>
+<div id="outline-container-org27455d8" class="outline-3">
+<h3 id="org27455d8">11:00 — Yishay Mansour (Tel Aviv University) — Swap Regret and Correlated Equilibria Beyond Normal-Form Games</h3>
+<div class="outline-text-3" id="text-org27455d8">
+<p>
+Swap regret is a notion that has proven itself to be central to the
+study of general-sum normal-form games, with swap-regret minimization
+leading to convergence to the set of correlated equilibria and
+guaranteeing non-manipulability against a self-interested opponent.
+However, the situation for more general classes of games &#x2013; such as
+Bayesian games and extensive-form games &#x2013; is less clear-cut, with
+multiple candidate definitions for swap-regret but no known
+efficiently minimizable variant of swap regret that implies analogous
+non-manipulability guarantees.
+</p>
+
+<p>
+In this paper, we present a new variant of swap regret for polytope
+games that we call "profile swap regret", with the property that
+obtaining sublinear profile swap regret is both necessary and
+sufficient for any learning algorithm to be non-manipulable by an
+opponent (resolving an open problem of Mansour et al., 2022). Although
+we show profile swap regret is NP-hard to compute given a transcript
+of play, we show it is nonetheless possible to design efficient
+learning algorithms that guarantee at most \(\sqrt{T})\) profile swap
+regret. Finally, we explore the correlated equilibrium notion induced
+by low-profile-swap-regret play, and demonstrate a gap between the set
+of outcomes that can be implemented by this learning process and the
+set of outcomes that can be implemented by a third-party mediator (in
+contrast to the situation in normal-form games).
+</p>
+
+<p>
+Joint work with Eshwar Ram Arunachaleswaran, Natalie Collina, Mehryar
+Mohri, Jon Schneider, and Balasubramanian Sivan
+</p>
+</div>
+</div>
+<div id="outline-container-orga4accab" class="outline-3">
+<h3 id="orga4accab">13:30 — Sergiu Hart (The Hebrew University of Jerusalem) — TBA</h3>
+</div>
+<div id="outline-container-org240259c" class="outline-3">
+<h3 id="org240259c">14:15 — Gabriele Farina (MIT) — TBA</h3>
+</div>
+<div id="outline-container-org47548ce" class="outline-3">
+<h3 id="org47548ce">15:30 — Evgenii Chzhen (CNRS) — About an extension of Blackwell’s approachability framework with applications to fairness</h3>
+<div class="outline-text-3" id="text-org47548ce">
+<p>
+We provide a setting and a general approach to fair online learning with stochastic sensitive and non-sensitive contexts. The setting is a repeated game between
+the Player and Nature, where at each stage both pick actions based on the contexts. Inspired by the notion of unawareness, we assume that the Player can only
+access the non-sensitive context before making a decision, while we discuss both
+cases of Nature accessing the sensitive contexts and Nature unaware of the sensitive contexts. Adapting Blackwell’s approachability theory to handle the case of
+an unknown contexts' distribution, we provide a general necessary and sufficient
+condition for learning objectives to be compatible with some fairness constraints.
+This condition is instantiated on (group-wise) no-regret and (group-wise) calibration objectives, and on demographic parity as an additional constraint. When the
+objective is not compatible with the constraint, the provided framework permits to
+characterise the optimal trade-off between the two.
+</p>
+</div>
+</div>
+<div id="outline-container-org576c443" class="outline-3">
+<h3 id="org576c443">16:15 — Kohei Hatano (Kyushu University) — TBA</h3>
+</div>
+</div>
+<div id="outline-container-org86b1ae0" class="outline-2">
+<h2 id="org86b1ae0">Thursday, November 6th</h2>
+<div class="outline-text-2" id="text-org86b1ae0">
+</div>
+<div id="outline-container-org666fae0" class="outline-3">
+<h3 id="org666fae0">9:00 — Flore Sentenac (HEC) — Balancing optimism and pessimism in offline-to-online learning</h3>
+<div class="outline-text-3" id="text-org666fae0">
+<p>
+Based on a paper with Ilbin Lee and Csaba Szeppesvari. 
+</p>
+
+<p>
+We consider what we call the offline-to-online learning setting,
+focusing on stochastic finite-armed bandit problems. In
+offline-to-online learning problems, a learner starts with offline
+data collected from interaction with an unknown environment in a way
+that is not under the control of the learner. Given this data, the
+learner then starts interacting with the environment, gradually
+improving its initial strategy as it collects more data so as to
+maximize the total reward it receives from the environment. The basic
+dilemma of the learner in this setting is as follows: if the problem
+was purely offline (the learner is given data that it can use to
+design a policy, which then remains fixed), the best strategy (in a
+number of senses) would be to use the Lower Confidence Bound (LCB)
+algorithm, which is based on pessimism. Among other things, LCB can
+simultaneously compete with any policy that is sufficiently
+"covered" by the offline data. However, if the problem was purely
+online, the best strategy (in a number of senses) would be to use
+theUpper Confidence Bound (UCB) algorithm based on optimism. Indeed,
+as time goes by, the UCB algorithm will match the performance of the
+optimal policy at a speed that is nearly the best possible among all
+online algorithms. For offline-to-online learning, however, UCB will
+explore too much initially, and as such, its performance will be
+inferior to that of LCB, at least for some time. This suggests that
+the learner should use LCB initially and then gradually change its
+strategy to resemble UCB. Just how this should be done (and why) is
+the subject of this talk. In particular, our main result shows that
+our new algorithm performs nearly as well as the better of LCB and UCB
+at any point in time.
+</p>
+</div>
+</div>
+<div id="outline-container-orga62078a" class="outline-3">
+<h3 id="orga62078a">9:45 — Elad Hazan (Princeton University) — TBA</h3>
+</div>
+<div id="outline-container-orgf7ab9f9" class="outline-3">
+<h3 id="orgf7ab9f9">11:00 — Jacob Abernethy (Georgia Institute of Technology) — TBA</h3>
+</div>
+<div id="outline-container-org1539e15" class="outline-3">
+<h3 id="org1539e15">13:30 — Francesco Orabona (KAUST) — TBA</h3>
+</div>
+<div id="outline-container-org40883a4" class="outline-3">
+<h3 id="org40883a4">14:15 — Kfir Levy (Technion) — Do Stochastic, Feel Noiseless: Stable Optimization via a Double Momentum Mechanism</h3>
+<div class="outline-text-3" id="text-org40883a4">
+<p>
+The tremendous success of the Machine Learning paradigm heavily relies
+on the development of powerful optimization methods, and the canonical
+algorithm for training learning models is SGD (Stochastic Gradient
+Descent). Nevertheless, the latter is quite different from Gradient
+Descent (GD) which is its noiseless counterpart. Concretely, SGD
+requires a careful choice of the learning rate, which relies on the
+properties of the noise as well as the quality of initialization. It
+further requires the use of a test set to estimate the generalization
+error throughout its run. In this talk, we will present a new SGD
+variant that obtains the same optimal rates as SGD, while using
+noiseless machinery as in GD. Concretely, it enables to use the same
+fixed learning rate as GD and does not require to employ a
+test/validation set. Curiously, our results rely on a novel gradient
+estimate that combines two recent mechanisms which are related to the
+notion of momentum. Finally, I will discuss several applications of
+our new variant.
+</p>
+</div>
+</div>
+<div id="outline-container-org867a505" class="outline-3">
+<h3 id="org867a505">15:30 — Ashok Cutkosky (Boston University) — TBA</h3>
+</div>
+<div id="outline-container-org20f7bf6" class="outline-3">
+<h3 id="org20f7bf6">16:15 — Aaron Defazio (Meta) — TBA</h3>
+</div>
+</div>
+<div id="outline-container-org7c32840" class="outline-2">
+<h2 id="org7c32840">Friday, November 7th</h2>
+<div class="outline-text-2" id="text-org7c32840">
+</div>
+<div id="outline-container-org23470cd" class="outline-3">
+<h3 id="org23470cd">9:00 — Tomer Koren (Tel Aviv University) — TBA</h3>
+</div>
+<div id="outline-container-org263fa35" class="outline-3">
+<h3 id="org263fa35">9:45 — Emilie Kaufmann (CNRS) — TBA</h3>
+</div>
+<div id="outline-container-org2964576" class="outline-3">
+<h3 id="org2964576">11:00 — Tim van Erven (University of Amsterdam) — An Improved Algorithm for Adversarial Linear Contextual Bandits via Reduction</h3>
+<div class="outline-text-3" id="text-org2964576">
+<p>
+We present an efficient algorithm for linear contextual bandits with
+adversarial losses and stochastic action sets. Our approach reduces
+this setting to misspecification-robust adversarial linear bandits
+with fixed action sets. Without knowledge of the context distribution
+or access to a context simulator, the algorithm achieves
+\(\tilde{O}(\min\{d^2\sqrt{T}, \sqrt{d^3T\log K}\})\) regret and runs in
+\(\text{poly}(d,C,T)\) time, where d is the feature dimension, C is an
+upper bound on the number of linear constraints defining the action
+set in each round, K is an upper bound on the number of actions in
+each round, and T is number of rounds. This resolves the open question
+by Liu et al. (2023) on whether one can obtain \(\text{poly}(d)\sqrt{T}\)
+regret in polynomial time independent of the number of actions. For
+the important class of combinatorial bandits with adversarial losses
+and stochastic action sets where the action sets can be described by a
+polynomial number of linear constraints, our algorithm is the first to
+achieve \(\text{poly}(d)\sqrt{T}\) regret in polynomial time, while no
+prior algorithm achieves even \(o(T)\) regret in polynomial time to our
+knowledge. When a simulator is available, the regret bound can be
+improved to \(\tilde{O}(d\sqrt{L^\star})\), where \(L^\star\) is the
+cumulative loss of the best policy.
+</p>
+</div>
+</div>
+<div id="outline-container-org12304c6" class="outline-3">
+<h3 id="org12304c6">13:30 — Michael I. Jordan (University of California, Berkeley) — TBA</h3>
+</div>
+<div id="outline-container-org47ece10" class="outline-3">
+<h3 id="org47ece10">14:15 — Sarah Sachs (University of Bristol) — Tracking Solutions of Time-Varying Variational Inequalities</h3>
+<div class="outline-text-3" id="text-org47ece10">
+<p>
+We can compute the solution of a fixed variational inequality under
+sufficient assumptions. But what happens if the variational inequality
+varies over time? Can we track the solutions in an online setting?
+</p>
+
+<p>
+In this talk, I will present our recent results on tracking guarantees
+for solutions of time-varying variational inequalities [1]. Since
+variational inequality problems generalize equilibrium computation in
+concave games, minimization of convex functions, and parameter
+estimation in generalized linear models, our results have applications
+in game theory, dynamic regret minimization, and parameter estimation
+in statistics. Existing prior work has primarily focused on
+time-varying games or time-varying optimization problems. For strongly
+convex optimization problems or strongly monotone games, such results
+provide tracking guarantees under the assumption that the variation of
+the time-varying problem is restrained, that is, problems with a
+sublinear solution path. We extend existing results in two ways: In
+our first result, we provide tracking bounds for (1) variational
+inequalities with a sublinear solution path but not necessarily
+monotone functions, and (2) for periodic time-varying variational
+inequalities that do not necessarily have a sublinear solution path
+length. Our second main contribution is an extensive study of the
+convergence behavior and trajectory of discrete dynamical systems of
+periodic time-varying variational inequalities. We show that these
+systems can either exhibit provably chaotic behavior or can converge
+to the solution. I will conclude this talk by highlighting open
+research questions and discussing potential future directions in this
+area.
+</p>
+
+<p>
+[1] Tracking solutions of time-varying variational inequalities. Joint work with Hédi Hadiji and Cristobál Guzmán.
+</p>
+</div>
+</div>
+<div id="outline-container-orgf5ed9b3" class="outline-3">
+<h3 id="orgf5ed9b3">15:30 — Roi Livni (Tel Aviv University) — TBA</h3>
+</div>
+<div id="outline-container-orgbad8b39" class="outline-3">
+<h3 id="orgbad8b39">16:15 — Francis Bach (INRIA) — TBA</h3>
+</div>
+</div>
+</div>
+</body>
+</html>
