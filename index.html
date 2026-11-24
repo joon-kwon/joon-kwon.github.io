@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en, fr" xml:lang="en, fr">
 <head>
-<!-- 2026-03-12 jeu. 19:18 -->
+<!-- 2026-11-24 mar. 15:01 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Joon Kwon</title>
@@ -59,6 +59,7 @@
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
   pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-c:before { content: 'C'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -73,7 +74,7 @@
   pre.src-haskell:before { content: 'Haskell'; }
   pre.src-hledger:before { content: 'hledger'; }
   pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
+  pre.src-js:before { content: 'JavaScript'; }
   pre.src-latex:before { content: 'LaTeX'; }
   pre.src-ledger:before { content: 'Ledger'; }
   pre.src-lisp:before { content: 'Lisp'; }
@@ -186,7 +187,13 @@
   #org-div-home-and-up
    { text-align: right; font-size: 70%; white-space: nowrap; }
   textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
+  .linenr {
+    font-size: smaller;
+    @supports (content: attr(data-linenr)) {
+      visibility: hidden;
+      &::before { content: attr(data-linenr); visibility: visible; }
+    }
+  }
   .code-highlighted { background-color: #ffff00; }
   .org-info-js_info-navigation { border-style: none; }
   #org-info-js_console-label
@@ -202,7 +209,7 @@
 <h1 class="title">Joon Kwon</h1>
 <p>
 INRAE Researcher<br />
-Professeur attaché &#x2014; Université Paris&#x2013;Saclay<br />
+Professeur attaché &mdash; Université Paris&ndash;Saclay<br />
 </p>
 
 <p width="45%">
@@ -210,49 +217,53 @@ Professeur attaché &#x2014; Université Paris&#x2013;Saclay<br />
 </p>
 
 <p>
-<b>Research Topics.</b> &#x2014; Machine learning, optimization, game theory, applications to life sciences.
+<b>Research Topics.</b> &mdash; Machine learning, optimization, game theory, applications to life sciences.
 </p>
 
 <p>
 I defended my <a href="these-garamond.pdf">PhD Thesis</a> on October 18, 2016, under the supervision of
 <a href="https://sites.google.com/site/ridalaraki/">Rida Laraki</a> and <a href="https://webusers.imj-prg.fr/sylvain.sorin">Sylvain Sorin</a> at <a href="http://www.institut.math.jussieu.fr/">Institut de Mathématiques de Jussieu</a>,
-<a href="http://www.upmc.fr/">Université Pierre-et-Marie-Curie &#x2013; Paris 6</a>.<br />
+<a href="http://www.upmc.fr/">Université Pierre-et-Marie-Curie &ndash; Paris 6</a>.<br />
 </p>
-<div id="outline-container-org589385a" class="outline-2">
-<h2 id="org589385a">Distinctions</h2>
-<div class="outline-text-2" id="text-org589385a">
+<div id="outline-container-org1be426c" class="outline-2">
+<h2 id="org1be426c">Distinctions</h2>
+<div class="outline-text-2" id="text-org1be426c">
 <ul class="org-ul">
 <li><a href="https://www.fondation-hadamard.fr/fr/pgmo/students/phdawards">PGMO PhD Prize</a> (2017)</li>
-<li><a href="https://www.fondation-hadamard.fr/">Fondation mathématique Jacques Hadamard</a> post-doc laureate (2016&#x2013;2018)</li>
+<li><a href="https://www.fondation-hadamard.fr/">Fondation mathématique Jacques Hadamard</a> post-doc laureate (2016&ndash;2018)</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org500f6fa" class="outline-2">
-<h2 id="org500f6fa">Teaching</h2>
-<div class="outline-text-2" id="text-org500f6fa">
+<div id="outline-container-org559243b" class="outline-2">
+<h2 id="org559243b">Teaching</h2>
+<div class="outline-text-2" id="text-org559243b">
 <ul class="org-ul">
-<li><a href="./rl-ups/">Introduction to Reinforcement Learning</a> &#x2014; M2 Université Paris-Saclay (2023&#x2013;)</li>
-<li><a href="./regret-ups">Online Learning, links with optimization and games</a> &#x2014; M2 Université Paris-Saclay (2024&#x2013;)</li>
-<li><a href="./cpes-ml/">Introduction to Machine Learning</a> &#x2014; CPES2 Paris Sciences et Lettres (2018&#x2013;2023)</li>
+<li><a href="./rl-ups/">Introduction to Reinforcement Learning</a> &mdash; M2 Université Paris-Saclay (2023&ndash;)</li>
+<li><a href="./regret-ups">Online Learning, links with optimization and games</a> &mdash; M2 Université Paris-Saclay (2024&ndash;)</li>
+<li><a href="./cpes-ml/">Introduction to Machine Learning</a> &mdash; CPES2 Paris Sciences et Lettres (2018&ndash;2023)</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org5ec7550" class="outline-2">
-<h2 id="org5ec7550">Organization</h2>
-<div class="outline-text-2" id="text-org5ec7550">
+<div id="outline-container-org41c0784" class="outline-2">
+<h2 id="org41c0784">Organization</h2>
+<div class="outline-text-2" id="text-org41c0784">
 <ul class="org-ul">
 <li><a href="2025-workshop/index.html">Workshop on Regret, Optimization &amp; Games</a> (2025)</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org0fc0e42" class="outline-2">
-<h2 id="org0fc0e42">Publications</h2>
-<div class="outline-text-2" id="text-org0fc0e42">
+<div id="outline-container-org321b613" class="outline-2">
+<h2 id="org321b613">Publications</h2>
+<div class="outline-text-2" id="text-org321b613">
 <ul class="org-ul">
+<li><a href="https://arxiv.org/abs/2610.39531">Conic-lifting for learning-rate-free convex optimization</a> (with J. Grand-Clément &amp; F. Orabona), 2026, preprint.</li>
+<li><a href="adaptive-parameter-free-approachability.pdf">A general class of parameter-free algorithms for approachability, regret and optimization</a>, 2026, preprint.</li>
 <li><a href="https://arxiv.org/abs/2509.21653">A regret minimization approach to fixed-point iterations</a>, 2025, preprint.</li>
 <li><a href="articles/convex-lsc-on-compact.pdf">On the supremum of convex lower semicontinuous functions on compact
 domains</a>, 2025, to appear in <i>Journal of Convex Analysis</i>.</li>
-<li><a href="https://arxiv.org/abs/2303.04956">Time-dependent Blackwell approachability and application to absorbing games</a> (with Y. Wan &amp; B. Ziliotto), preprint, 2025.</li>
+<li><a href="https://arxiv.org/abs/2303.04956">Time-dependent Blackwell approachability and application to
+absorbing games</a> (with Y. Wan &amp; B. Ziliotto), revision in <i>Games and
+Economic Behavior</i>, 2025.</li>
 <li><a href="https://www.sciencedirect.com/science/article/pii/S2772694025000044">Data paper: A goat behaviour dataset combining labelled behaviours and accelerometer data for training Machine Learning detection models</a> (with S. Mauny, N.C. Friggens, C. Duvaux-Ponter &amp; M. Taghipoor)<br />
 <i>Animal - Open Space</i>, 4:100095, 2025</li>
 <li><a href="https://peercommunityjournal.org/articles/10.24072/pcjournal.545/">A pipeline with pre-processing options to detect behaviour from accelerometer data using Machine Learning tested on dairy goats</a> (with S. Mauny, N.C. Friggens, C. Duvaux-Ponter &amp; M. Taghipoor)<br />
@@ -271,16 +282,16 @@ high-dimensional count data</a> (with B. Batardière &amp; J. Chiquet)<br />
 <li><a href="https://arxiv.org/abs/1812.02435">A MOM-based ensemble method for robustness, subsampling and hyperparameter tuning</a> (with <a href="http://lecueguillaume.github.io/">G. Lecué</a>, <a href="http://lerasle.perso.math.cnrs.fr/index.html">M. Lerasle</a>),<br />
 <i>Electronic Journal of Statistics</i>, 15(1):1202-1227, 2021.</li>
 <li><a href="articles/sparse-bandits.pdf">Sparse stochastic bandits</a> (with <a href="https://sites.google.com/site/vianneyperchet/">V. Perchet</a> et <a href="https://cvernade.wp.imt.fr/">C. Vernade</a>),<br />
-<i>Proc. Mach. Learn. Res. (COLT 2017)</i>, 65:1269&#x2013;1270, 2017.</li>
+<i>Proc. Mach. Learn. Res. (COLT 2017)</i>, 65:1269&ndash;1270, 2017.</li>
 <li><a href="articles/aistats2017.pdf">Online learning and Blackwell approachability with partial monitoring: optimal convergence rates</a> (with <a href="https://sites.google.com/site/vianneyperchet/">V. Perchet</a>),<br />
-<i>Proc. Mach. Lean. Res. (AISTATS 2017)</i>, 54:604&#x2013;613, 2017.</li>
+<i>Proc. Mach. Lean. Res. (AISTATS 2017)</i>, 54:604&ndash;613, 2017.</li>
 <li><a href="articles/sparse-adversarial.pdf">Gains and losses are fundamentally different in regret minimization: the sparse case</a> (with <a href="https://sites.google.com/site/vianneyperchet/">V. Perchet</a>),<br />
-<i>Journal of Machine Learning Research</i>, 17(229):1&#x2013;32, 2016.</li>
+<i>Journal of Machine Learning Research</i>, 17(229):1&ndash;32, 2016.</li>
 <li><a href="articles/continuous-time.pdf">A continuous-time approach to online optimization</a> (with <a href="http://mescal.imag.fr/membres/panayotis.mertikopoulos/home.html">P.
 Mertikopoulos</a>),<br />
-<i>Journal of Dynamics and Games</i>, 4(2):125&#x2013;148, 2017.</li>
+<i>Journal of Dynamics and Games</i>, 4(2):125&ndash;148, 2017.</li>
 <li><a href="articles/variations.pdf">A universal bound on the variations of bounded convex functions</a>,<br />
-<i>Journal of Convex Analysis</i>, 24(1):67&#x2013;73, 2017.</li>
+<i>Journal of Convex Analysis</i>, 24(1):67&ndash;73, 2017.</li>
 </ul>
 </div>
 </div>
